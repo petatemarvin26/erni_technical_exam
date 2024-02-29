@@ -1,16 +1,13 @@
-import {Vehicle} from 'components/interfaces';
+import {VehicleProps} from 'components/interfaces/Vehicle/types';
 
 type Status = 'available' | 'unavailable' | 'reserved';
 
 type SpaceProps = {
-  side_id: number;
+  status: Status;
+  vehicle: VehicleProps;
 };
 
-type SpaceState = {
-  side_id: number;
-  status: Status;
-  vehicle?: Vehicle;
-};
+type SpaceState = {};
 
 const SPACE_AVAIL: Status = 'available';
 const SPACE_UNAVAIL: Status = 'unavailable';

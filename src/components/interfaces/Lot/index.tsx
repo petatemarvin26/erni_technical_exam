@@ -7,9 +7,7 @@ class Lot<T> extends React.PureComponent<T, LotState> {
     super(props);
 
     this.state = {
-      entry_points: 3,
-      width: 500,
-      height: 300
+      entry_points: 3
     };
   }
 }

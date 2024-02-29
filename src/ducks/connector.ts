@@ -1,14 +1,14 @@
 import {ConnectedProps, connect} from 'react-redux';
 
-import {setAppStatus} from './app';
+import {setEntryPoint} from './parking_lot';
 import {MapDispatch, MapState} from './types';
 
-const mapState: MapState = ({app}) => ({
-  app
+const mapState: MapState = ({parkingLot}) => ({
+  parkingLot
 });
 
 const mapDispatch: MapDispatch = (dispatch) => ({
-  setAppStatus: (payload) => dispatch(setAppStatus(payload))
+  setEntryPoint: (payload) => dispatch(setEntryPoint(payload))
 });
 
 const connector = connect(mapState, mapDispatch);

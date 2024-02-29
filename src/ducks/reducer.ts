@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 
-import app from './app';
+import parkingLot from './parking_lot';
 
 function rootReducer() {
   return combineReducers({
-    app
+    parkingLot
   });
 }
 

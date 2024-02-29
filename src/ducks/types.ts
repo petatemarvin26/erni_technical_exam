@@ -1,9 +1,9 @@
 import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 
-import {AppState} from './app/types';
+import {ParkingLotState} from './parking_lot/types';
 
 type MapProps = {
-  app: AppState;
+  parkingLot: ParkingLotState;
 };
 
 type MapState = {
@@ -24,7 +24,7 @@ type MetaData = {
 
 type State<E, A = {}> = {
   metadata?: MetaData;
-  data?: E;
+  data: E;
   error?: any;
   loading?: boolean;
 } & A;
@@ -38,8 +38,8 @@ type Dispatch<T> = {
   (payload: any): Action<T>;
 };
 
-type Reducer<E, AT> = {
-  (state: State<E>, action: AT): State<E>;
+type Reducer<S, AT> = {
+  (state: S, action: AT): S;
 };
 
 export type {MapState, MapDispatch, State, Action, Dispatch, Reducer};
