@@ -7,6 +7,7 @@ class Space extends React.PureComponent<SpaceProps, SpaceState> {
     super(props);
 
     this.state = {
+      side_id: props.side_id,
       status: SPACE_AVAIL
     };
   }

@@ -1,7 +1,11 @@
-import styles from './App.module.css';
+import {ParkingLot} from 'components';
 
 const App: React.FC = () => {
-  return <div className={styles['main']}>HELLO WORLD!</div>;
+  return (
+    <div>
+      <ParkingLot></ParkingLot>
+    </div>
+  );
 };
 
 export default App;

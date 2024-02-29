@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {ParkProps, ParkState} from './types';
+import {LotState} from './types';
 
-class Lot extends React.PureComponent<ParkProps, ParkState> {
-  constructor(props: ParkProps) {
+class Lot<T> extends React.PureComponent<T, LotState> {
+  constructor(props: T) {
     super(props);
 
     this.state = {

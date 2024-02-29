@@ -1,3 +1,5 @@
+import {Vehicle} from 'components/interfaces';
+
 type Status = 'available' | 'unavailable' | 'reserved';
 
 type SpaceProps = {
@@ -5,7 +7,9 @@ type SpaceProps = {
 };
 
 type SpaceState = {
+  side_id: number;
   status: Status;
+  vehicle?: Vehicle;
 };
 
 const SPACE_AVAIL: Status = 'available';

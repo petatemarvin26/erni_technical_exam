@@ -1,4 +1,4 @@
-import {Vehicle} from 'components/interface';
+import {Vehicle} from 'components/interfaces';
 
 class Car extends Vehicle {
   handlePark() {

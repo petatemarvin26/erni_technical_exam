@@ -1,9 +1,19 @@
-import React from 'react';
+import ParkingSide from 'components/ParkingSide';
+import {Lot} from 'components/interfaces';
+import {connector, Props} from 'ducks';
+import {ReactNode} from 'react';
 
-import {Lot} from 'components/interface';
+class ParkingLot extends Lot<Props> {
+  componentDidMount(): void {}
 
-class ParkingLot extends Lot {
+  render(): ReactNode {
+    const {entry_points} = this.state;
 
+    const renderParkingSides = Array.from({length: entry_points}).map(
+      (_, i) => <ParkingSide side_id={i}></ParkingSide>
+    );
+    return <div>{renderParkingSides}</div>;
+  }
 }
 
-export default ParkingLot;
+export default connector(ParkingLot);
