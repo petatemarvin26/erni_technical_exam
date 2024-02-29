@@ -2,7 +2,6 @@ import {SpaceProps} from 'components/interfaces/Space/types';
 
 type SideProps = {
   side_id: number;
-  parking_spaces?: Array<SpaceProps>;
   children?: any;
 };
 

@@ -1,7 +1,46 @@
 import {ParkingSideReducer, ParkingSideState, SET_PARKINGSIDES} from './types';
 
 const parkingside_initstate: ParkingSideState = {
-  data: []
+  data: [
+    {
+      id: 'A',
+      parking_spaces: [
+        {
+          id: 'sp-1',
+          status: 'available',
+          vehicle: {
+            name: 'V-e1'
+          }
+        },
+        {
+          id: 'sp-2',
+          status: 'available',
+          vehicle: {
+            name: 'V-e2'
+          }
+        }
+      ]
+    },
+    {
+      id: 'B',
+      parking_spaces: [
+        {
+          id: 'sp-1',
+          status: 'available',
+          vehicle: {
+            name: 'V-e1'
+          }
+        },
+        {
+          id: 'sp-2',
+          status: 'available',
+          vehicle: {
+            name: 'V-e2'
+          }
+        }
+      ]
+    }
+  ]
 };
 
 const parkingSide: ParkingSideReducer = (

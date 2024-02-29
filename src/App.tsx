@@ -1,8 +1,10 @@
 import {ParkingLot} from 'components';
 
+import styles from './App.module.css';
+
 const App: React.FC = () => {
   return (
-    <div>
+    <div className={styles['main']}>
       <ParkingLot></ParkingLot>
     </div>
   );

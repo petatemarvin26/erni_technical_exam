@@ -6,15 +6,17 @@ import {Side} from 'components/interfaces';
 
 class ParkingSide extends Side<Props> {
   render(): ReactNode {
-    const {side_id, parking_spaces} = this.props;
+    const {side_id, parkingSide} = this.props;
 
-    const renderParkingSpaces = parking_spaces?.map(({status, vehicle}, i) => (
-      <ParkingSpace key={i} status={status} vehicle={vehicle}></ParkingSpace>
-    ));
+    const renderParkingSpaces = parkingSide?.parking_spaces.map(
+      ({status, vehicle}, i) => (
+        <ParkingSpace key={i} status={status} vehicle={vehicle}></ParkingSpace>
+      )
+    );
 
     return (
       <div>
-        <h4>PARKING SIDE {side_id}</h4>
+        <h4>ENTRY POINT {side_id}</h4>
         <div>{renderParkingSpaces}</div>
       </div>
     );
