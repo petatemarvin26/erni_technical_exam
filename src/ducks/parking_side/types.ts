@@ -5,21 +5,22 @@ import {ParkingSpace} from 'ducks/parking_space/types';
 type ActionType = 'SET-PARKINGSIDES';
 
 type ParkingSide = {
-  side_id: number;
+  id: string;
   parking_spaces: Array<ParkingSpace>;
 };
 
-type ParkingSideState = State<ParkingSide>;
+type ParkingSideState = State<Array<ParkingSide>>;
 type ParkingSideActions = Action<ActionType>;
 type ParkingSideDispatch = Dispatch<ActionType>;
 type ParkingSideReducer = Reducer<ParkingSideState, ParkingSideActions>;
 
-const SET_PARKINGSPACES: ActionType = 'SET-PARKINGSIDES';
+const SET_PARKINGSIDES: ActionType = 'SET-PARKINGSIDES';
 
 export type {
+  ParkingSide,
   ParkingSideState,
   ParkingSideActions,
   ParkingSideDispatch,
   ParkingSideReducer
 };
-export {SET_PARKINGSPACES};
+export {SET_PARKINGSIDES};

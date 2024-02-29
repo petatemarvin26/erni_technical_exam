@@ -1,3 +1,4 @@
+import {ParkingSide} from 'ducks/parking_side/types';
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
 type ActionType =
@@ -9,6 +10,7 @@ type ParkingLot = {
   entry_points: number;
   available_parkingspace: number;
   max_parkingspace: number;
+  parking_sides: Array<ParkingSide['id']>;
 };
 
 type ParkingLotState = State<ParkingLot>;

@@ -1,8 +1,8 @@
-import {SET_VEHICLES, VehicleDispatch} from 'ducks/vehicle/types';
+import {ParkingSpaceDispatch, SET_PARKINGSPACES} from './types';
 
-const setVehicles: VehicleDispatch = (payload) => ({
-  type: SET_VEHICLES,
+const setParkingSpaces: ParkingSpaceDispatch = (payload) => ({
+  type: SET_PARKINGSPACES,
   payload
 });
 
-export {setVehicles};
+export {setParkingSpaces};

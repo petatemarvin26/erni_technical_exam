@@ -1,6 +1,6 @@
 import {ConnectedProps, connect} from 'react-redux';
 
-import {setEntryPoint} from './parking_lot';
+// import {setEntryPoint} from './parking_lot';
 import {MapDispatch, MapState} from './types';
 
 const mapState: MapState = ({parkingLot}) => ({
@@ -8,7 +8,8 @@ const mapState: MapState = ({parkingLot}) => ({
 });
 
 const mapDispatch: MapDispatch = (dispatch) => ({
-  setEntryPoint: (payload) => dispatch(setEntryPoint(payload))
+  dispatch: (action) => dispatch(action)
+  // setEntryPoint: (payload) => dispatch(setEntryPoint(payload))
 });
 
 const connector = connect(mapState, mapDispatch);

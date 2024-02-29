@@ -1,10 +1,10 @@
-import {VehicleProps} from 'components/interfaces/Vehicle/types';
+import {Vehicle} from 'ducks/vehicle/types';
 
 type Status = 'available' | 'unavailable' | 'reserved';
 
 type SpaceProps = {
   status: Status;
-  vehicle: VehicleProps;
+  vehicle: Vehicle;
 };
 
 type SpaceState = {};

@@ -10,7 +10,8 @@ const parkinglot_initstate: ParkingLotState = {
   data: {
     entry_points: 3,
     available_parkingspace: 10,
-    max_parkingspace: 10
+    max_parkingspace: 10,
+    parking_sides: []
   }
 };
 

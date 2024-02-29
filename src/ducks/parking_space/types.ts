@@ -7,6 +7,7 @@ type ActionType = 'SET-PARKINGSPACES';
 type Status = 'available' | 'unavailable' | 'reserved';
 
 type ParkingSpace = {
+  id: string;
   status: Status;
   vehicle: Vehicle;
 };

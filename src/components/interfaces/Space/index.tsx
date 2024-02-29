@@ -1,16 +1,7 @@
 import React from 'react';
 
-import {SpaceProps, SpaceState, SPACE_AVAIL} from './types';
+import {SpaceProps, SpaceState} from './types';
 
-class Space extends React.PureComponent<SpaceProps, SpaceState> {
-  constructor(props: SpaceProps) {
-    super(props);
-
-    this.state = {
-      side_id: props.side_id,
-      status: SPACE_AVAIL
-    };
-  }
-}
+class Space<T> extends React.PureComponent<T & SpaceProps, SpaceState> {}
 
 export default Space;

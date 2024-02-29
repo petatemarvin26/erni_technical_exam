@@ -9,7 +9,7 @@ class ParkingLot extends Lot<Props> {
 
   render(): ReactNode {
     const {parkingLot} = this.props;
-    const entry_pts = parkingLot.data.entry_points;
+    const entry_pts = parkingLot?.data.entry_points || 0;
 
     const renderParkingSides = Array.from({length: entry_pts}).map((_, i) => (
       <ParkingSide key={i} side_id={i}></ParkingSide>

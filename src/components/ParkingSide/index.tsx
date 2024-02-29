@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-import {Props} from 'ducks';
+import {Props, connector} from 'ducks';
 import {ParkingSpace} from 'components';
 import {Side} from 'components/interfaces';
 
@@ -8,8 +8,8 @@ class ParkingSide extends Side<Props> {
   render(): ReactNode {
     const {side_id, parking_spaces} = this.props;
 
-    const renderParkingSpaces = parking_spaces?.map(({status, vehicle}) => (
-      <ParkingSpace status={status} vehicle={vehicle}></ParkingSpace>
+    const renderParkingSpaces = parking_spaces?.map(({status, vehicle}, i) => (
+      <ParkingSpace key={i} status={status} vehicle={vehicle}></ParkingSpace>
     ));
 
     return (
@@ -21,4 +21,4 @@ class ParkingSide extends Side<Props> {
   }
 }
 
-export default ParkingSide;
+export default connector(ParkingSide);

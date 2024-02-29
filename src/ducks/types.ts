@@ -3,16 +3,22 @@ import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 import {ParkingLotState} from './parking_lot/types';
 
 type MapProps = {
-  parkingLot: ParkingLotState;
+  parkingLot?: ParkingLotState;
 };
 
 type MapState = {
   (props: MapProps): MapProps;
 };
 
+// type MapDispatch = {
+//   (dispatch: ReduxDispatch): {
+//     [dispatch: string]: (payload: any) => ReduxAction;
+//   };
+// };
+
 type MapDispatch = {
-  (dispatch: ReduxDispatch): {
-    [dispatch: string]: (payload: any) => ReduxAction;
+  (dispatch: ReduxDispatch<ReduxAction>): {
+    dispatch?: (action: ReduxAction) => ReduxAction;
   };
 };
 
