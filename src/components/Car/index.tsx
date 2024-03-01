@@ -14,7 +14,14 @@ class Car extends Vehicle {
 
   render(): ReactNode {
     const {name} = this.props;
-    return <div className={styles['car']}>{name}</div>;
+    return (
+      <div className={styles['car']}>
+        <div className={styles['name']}>CAR {name}</div>
+        <div className={styles['action']}>
+          <button>PARK</button>
+        </div>
+      </div>
+    );
   }
 }
 

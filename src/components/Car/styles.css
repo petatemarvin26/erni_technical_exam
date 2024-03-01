@@ -5,4 +5,22 @@
   justify-content: center;
   border: var(--BORDER-LIGHT);
   background-color: white;
+  gap: 10px;
+}
+.car .name {
+  font-weight: bold;
+}
+
+.car button {
+  width: 100px;
+  height: 25px;
+  font-size: 12px;
+  border: var(--BORDER-LIGHT);
+  background-color: white;
+}
+.car button:hover {
+  cursor: pointer;
+}
+.car button:active {
+  opacity: 0.6;
 }
