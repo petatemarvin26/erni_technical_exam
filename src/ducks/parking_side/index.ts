@@ -1,11 +1,13 @@
 import {SIZE} from 'constants/enums';
 import {
   ADD_PARKINGSIDE,
+  ADD_PARKINGSPACE,
   ParkingSideReducer,
   ParkingSideState,
   SET_PARKINGSIDES,
   UPDATE_PARKINGSIDE
 } from './types';
+import {getSize} from 'utils/helper';
 
 const parkingside_initstate: ParkingSideState = {
   data: [
@@ -13,7 +15,7 @@ const parkingside_initstate: ParkingSideState = {
       id: 'A',
       parking_spaces: [
         {
-          id: 'A1',
+          id: 'A3',
           status: 'available',
           size: SIZE.SMALL,
           vehicle_id: undefined
@@ -25,7 +27,7 @@ const parkingside_initstate: ParkingSideState = {
           vehicle_id: undefined
         },
         {
-          id: 'A3',
+          id: 'A1',
           status: 'available',
           size: SIZE.SMALL,
           vehicle_id: undefined
@@ -36,7 +38,7 @@ const parkingside_initstate: ParkingSideState = {
       id: 'B',
       parking_spaces: [
         {
-          id: 'B1',
+          id: 'B3',
           status: 'available',
           size: SIZE.MEDIUM,
           vehicle_id: undefined
@@ -48,7 +50,7 @@ const parkingside_initstate: ParkingSideState = {
           vehicle_id: undefined
         },
         {
-          id: 'B3',
+          id: 'B1',
           status: 'available',
           size: SIZE.MEDIUM,
           vehicle_id: undefined
@@ -59,7 +61,7 @@ const parkingside_initstate: ParkingSideState = {
       id: 'C',
       parking_spaces: [
         {
-          id: 'C1',
+          id: 'C3',
           status: 'available',
           size: SIZE.SMALL,
           vehicle_id: undefined
@@ -71,7 +73,7 @@ const parkingside_initstate: ParkingSideState = {
           vehicle_id: undefined
         },
         {
-          id: 'C3',
+          id: 'C1',
           status: 'available',
           size: SIZE.SMALL,
           vehicle_id: undefined
@@ -122,6 +124,26 @@ const parkingSide: ParkingSideReducer = (
             return parkspace;
           });
           return {...parkside, parking_spaces: parkspaces};
+        }
+        return parkside;
+      });
+      return {...state, data: updated_parkside};
+    }
+
+    case ADD_PARKINGSPACE: {
+      const payload = action.payload;
+      const updated_parkside = state.data.map((parkside) => {
+        if (parkside.id === payload.space_entry_id) {
+          const updated_space = [
+            {
+              id: payload.space_entry_id + (parkside.parking_spaces.length + 1),
+              status: 'available',
+              size: getSize(payload.space_size),
+              vehicle_id: undefined
+            },
+            ...parkside.parking_spaces
+          ];
+          return {...parkside, parking_spaces: updated_space};
         }
         return parkside;
       });

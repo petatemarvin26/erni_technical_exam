@@ -2,7 +2,11 @@ import {ConnectedProps, connect} from 'react-redux';
 
 import {addVehicle, updateVehicle} from './vehicle';
 import {updateParkingSpace} from './parking_space';
-import {addParkingSide, updateParkingSide} from './parking_side';
+import {
+  addParkingSide,
+  addParkingSpace,
+  updateParkingSide
+} from './parking_side';
 import {addEntryPoint} from './parking_lot';
 import {MapDispatch, MapState} from './types';
 
@@ -17,19 +21,31 @@ const mapState: MapState = ({
   parkingLot,
   parkingSide,
   getParkingSide: (side_id) => parkingSide?.data.find(({id}) => id === side_id),
+  getParkingSpace: (side_id, space_id) => {
+    let data;
+    parkingSide?.data.forEach((parkside) => {
+      if (parkside.id === side_id) {
+        parkside.parking_spaces.forEach((parkspace) => {
+          if (parkspace.id === space_id) {
+            data = parkspace;
+          }
+        });
+      }
+    });
+    return data;
+  },
   getParkSideOfVehicle: (vehicle_id) => {
-    let data = {parkside_id: '', parkspace_id: ''};
+    let data: any = {};
     parkingSide?.data.forEach((parkside) => {
       parkside.parking_spaces.forEach((parkspace) => {
         if (parkspace.vehicle_id === vehicle_id) {
           data['parkside_id'] = parkside.id;
-          data['parkspace_id'] = parkspace.id;
+          data['parkspace'] = parkspace;
         }
       });
     });
     return data;
-  },
-  parkingSpace
+  }
 });
 
 const mapDispatch: MapDispatch = (dispatch) => ({
@@ -39,7 +55,8 @@ const mapDispatch: MapDispatch = (dispatch) => ({
   updateParkingSide: (payload) => dispatch(updateParkingSide(payload)),
   updateVehicle: (payload) => dispatch(updateVehicle(payload)),
   addEntryPoint: (payload) => dispatch(addEntryPoint(payload)),
-  addParkingSide: (payload) => dispatch(addParkingSide(payload))
+  addParkingSide: (payload) => dispatch(addParkingSide(payload)),
+  addParkingSpace: (payload) => dispatch(addParkingSpace(payload))
 });
 
 const connector = connect(mapState, mapDispatch);

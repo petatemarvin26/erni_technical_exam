@@ -11,7 +11,7 @@ const vehicle_initstate: VehicleState = {
   data: [
     {
       id: 'VIN-1',
-      size: SIZE.SMALL,
+      size: SIZE.MEDIUM,
       did_park: false
     }
   ]

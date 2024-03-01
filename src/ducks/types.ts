@@ -3,7 +3,7 @@ import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 import {Vehicle, VehicleState} from './vehicle/types';
 import {ParkingLotState} from './parking_lot/types';
 import {ParkingSide, ParkingSideState} from './parking_side/types';
-import {ParkingSpaceState} from './parking_space/types';
+import {ParkingSpace, ParkingSpaceState} from './parking_space/types';
 
 type MapProps = {
   vehicle?: VehicleState;
@@ -11,9 +11,13 @@ type MapProps = {
   parkingSide?: ParkingSideState;
   parkingSpace?: ParkingSpaceState;
   getParkingSide?: (side_id: string) => ParkingSide | undefined;
+  getParkingSpace?: (
+    side_id: string,
+    space_id: string
+  ) => ParkingSpace | undefined;
   getParkSideOfVehicle?: (vehicle_id: string) => {
     parkside_id: string;
-    parkspace_id: string;
+    parkspace?: ParkingSpace;
   };
   getVehicle?: (vehicle_id: string) => Vehicle | undefined;
 };
@@ -37,6 +41,7 @@ type MapDispatch = {
     updateVehicle?: (payload: any) => ReduxAction;
     addEntryPoint?: (payload: any) => ReduxAction;
     addParkingSide?: (payload: any) => ReduxAction;
+    addParkingSpace?: (payload: any) => ReduxAction;
   };
 };
 

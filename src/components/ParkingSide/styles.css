@@ -12,7 +12,7 @@
   /* bottom: -150px;
   position: absolute; */
   width: var(--PARKINGLOT-WIDTH);
-  height: 75px;
+  height: 25px;
   align-items: center;
   justify-content: center;
   border: var(--BORDER-LIGHT);

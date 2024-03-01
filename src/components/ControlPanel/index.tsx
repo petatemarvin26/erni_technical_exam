@@ -16,7 +16,11 @@ class ControlPanel extends React.PureComponent<Props, State> {
       vehicle_id: '',
       vehicle_size: '',
       entry_id: '',
-      entry_spaces: 0
+      entry_spaces: 0,
+
+      space_entry_id: '',
+      space_id: '',
+      space_size: ''
     };
   }
 
@@ -26,7 +30,6 @@ class ControlPanel extends React.PureComponent<Props, State> {
     };
 
   handleAddVehicle = () => {
-    // CONTINUE
     const {vehicle_id, vehicle_size} = this.state;
     const {addVehicle = () => {}} = this.props;
     try {
@@ -51,8 +54,28 @@ class ControlPanel extends React.PureComponent<Props, State> {
     this.setState((prev) => ({...prev, entry_id: '', entry_spaces: 0}));
   };
 
+  handleAddSpace = () => {
+    const {addParkingSpace = () => {}} = this.props;
+    const {space_entry_id, space_id, space_size} = this.state;
+
+    addParkingSpace({space_entry_id, space_id, space_size});
+    this.setState((prev) => ({
+      ...prev,
+      space_entry_id: '',
+      space_id: '',
+      space_size: ''
+    }));
+  };
+
   render(): React.ReactNode {
-    const {vehicle_id, vehicle_size, entry_id, entry_spaces} = this.state;
+    const {
+      vehicle_id,
+      vehicle_size,
+      entry_id,
+      space_entry_id,
+      space_id,
+      space_size
+    } = this.state;
     return (
       <div className={styles['ctrl-panel']}>
         <div className={styles['left-ctrl-panel']}>
@@ -60,44 +83,38 @@ class ControlPanel extends React.PureComponent<Props, State> {
         </div>
         <div className={styles['right-ctrl-panel']}>
           <div className={styles['content']}>
-            <div className={styles['content-row']}>
-              <input
-                placeholder='Vehicle ID'
-                value={vehicle_id}
-                onChange={this.handleChange('vehicle_id')}
-              />
-              <input
-                placeholder='Vehicle Size'
-                value={vehicle_size}
-                onChange={this.handleChange('vehicle_size')}
-              />
-            </div>
+            <input
+              placeholder='Vehicle ID'
+              value={vehicle_id}
+              onChange={this.handleChange('vehicle_id')}
+            />
+            <input
+              placeholder='Vehicle Size'
+              value={vehicle_size}
+              onChange={this.handleChange('vehicle_size')}
+            />
             <button onClick={this.handleAddVehicle}>ADD VEHICLE</button>
           </div>
           <div className={styles['content']}>
-            <div className={styles['content-row']}>
-              <input
-                placeholder='Entry ID'
-                value={entry_id}
-                onChange={this.handleChange('entry_id')}
-              />
-            </div>
+            <input
+              placeholder='Entry ID'
+              value={entry_id}
+              onChange={this.handleChange('entry_id')}
+            />
             <button onClick={this.handleAddEntry}>ADD ENTRY POINT</button>
           </div>
           <div className={styles['content']}>
-            <div className={styles['content-row']}>
-              <input
-                placeholder='Entry ID'
-                value={entry_id}
-                onChange={this.handleChange('entry_id')}
-              />
-              <input
-                placeholder='Entry Spaces'
-                value={entry_spaces}
-                onChange={this.handleChange('entry_spaces')}
-              />
-            </div>
-            <button onClick={this.handleAddEntry}>ADD ENTRY POINT</button>
+            <input
+              placeholder='Space Entry ID'
+              value={space_entry_id}
+              onChange={this.handleChange('space_entry_id')}
+            />
+            <input
+              placeholder='Space Size'
+              value={space_size}
+              onChange={this.handleChange('space_size')}
+            />
+            <button onClick={this.handleAddSpace}>ADD SPACE</button>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import {Vehicle} from 'components/interfaces';
 import styles from './styles.css';
 import {Props, connector} from 'ducks';
 import {VehicleProps, VehicleState} from 'components/interfaces/Vehicle/types';
+import {isSizeFit} from 'utils/cheker';
 
 class Car extends Vehicle<Props> {
   constructor(props: VehicleProps) {
@@ -17,12 +18,21 @@ class Car extends Vehicle<Props> {
   }
 
   handlePark = () => {
-    const {side, space} = this.state;
     const {
       vehicle_id,
+      getVehicle = () => {},
+      getParkingSpace = () => {},
       updateParkingSide = () => {},
       updateVehicle = () => {}
     } = this.props;
+    const {side, space} = this.state;
+    const vehicle = getVehicle(vehicle_id)!;
+    const parkspace = getParkingSpace(side, space)!;
+
+    if (!isSizeFit(vehicle.size!, parkspace.size)) {
+      console.log('Vehicle is not fit');
+      return;
+    }
 
     updateParkingSide({
       id: side,
@@ -45,7 +55,7 @@ class Car extends Vehicle<Props> {
 
     updateParkingSide({
       id: vehicle.parkside_id,
-      space_id: vehicle.parkspace_id,
+      space_id: vehicle.parkspace?.id,
       vehicle_id: undefined,
       status: 'available'
     });

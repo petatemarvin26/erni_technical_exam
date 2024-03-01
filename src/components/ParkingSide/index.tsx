@@ -20,7 +20,7 @@ class ParkingSide extends Side<Props> {
         <div className={styles['parking-space-list']}>
           {renderParkingSpaces}
         </div>
-        <h4>{side_id}</h4>
+        <h4>ENTRY {side_id}</h4>
         <div className={styles['entrance-n-exit']}>ENTRANCE / EXIT</div>
       </div>
     );
