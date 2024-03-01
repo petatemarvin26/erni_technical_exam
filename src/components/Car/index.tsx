@@ -75,7 +75,7 @@ class Car extends Vehicle<Props> {
       vehicle_id: undefined,
       status: 'available'
     });
-    updateVehicle({id: vehicle_id, did_park: false});
+    updateVehicle({id: vehicle_id, did_park: false, charge: 0, time_start: ''});
   };
 
   handleChange =
