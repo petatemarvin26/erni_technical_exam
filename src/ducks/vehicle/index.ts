@@ -32,11 +32,11 @@ const car: VehicleReducer = (state = vehicle_initstate, action) => {
 
     case UPDATE_VEHICLE: {
       const payload = action.payload;
-      const updatedVehicles = state.data.map((vehicle) => {
+      const updated_vehicles = state.data.map((vehicle) => {
         if (vehicle.id === payload.id) return {...vehicle, ...payload};
         return vehicle;
       });
-      return {...state, data: updatedVehicles};
+      return {...state, data: updated_vehicles};
     }
 
     default:

@@ -1,6 +1,6 @@
 .parking-lot {
   min-width: 80%;
-  height: 70%;
+  height: 50%;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;

@@ -1,4 +1,5 @@
 import {
+  ADD_ENTRYPOINT,
   ParkingLotReducer,
   ParkingLotState,
   SET_AVAIL_PARKINGSPACE,
@@ -41,6 +42,15 @@ const parkingLot: ParkingLotReducer = (
       return {
         ...state,
         data: {...state.data, max_parkingspace}
+      };
+    }
+
+    case ADD_ENTRYPOINT: {
+      const entry_point = action.payload;
+      const parking_sides = [...state.data.parking_sides, entry_point];
+      return {
+        ...state,
+        data: {...state.data, parking_sides}
       };
     }
 

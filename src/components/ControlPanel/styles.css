@@ -1,6 +1,6 @@
 .ctrl-panel {
   min-width: 80%;
-  height: 17.5%;
+  height: 25%;
   flex-direction: row;
   border: var(--BORDER-LIGHT);
 }
@@ -15,12 +15,11 @@
   flex: 1;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   /* background-color: rgb(235, 243, 164); */
 }
 
 .right-ctrl-panel .content {
-  align-items: center;
   justify-content: center;
   width: 70%;
   gap: 5px;
@@ -31,7 +30,7 @@
 }
 
 .content input {
-  width: 97.5%;
+  width: 50%;
   height: 30px;
   padding-left: 5px;
   border: var(--BORDER-LIGHT);

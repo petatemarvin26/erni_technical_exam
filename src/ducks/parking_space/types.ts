@@ -1,3 +1,4 @@
+import {SIZE} from 'constants/enums';
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
 type ActionType = 'SET-PARKINGSPACES' | 'OCCUPY-PARKING-SPACE';
@@ -7,6 +8,7 @@ type Status = 'available' | 'unavailable' | 'reserved';
 type ParkingSpace = {
   id: string;
   status: Status;
+  size: SIZE;
   vehicle_id?: string;
 };
 

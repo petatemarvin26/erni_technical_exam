@@ -30,11 +30,26 @@ class Car extends Vehicle<Props> {
       vehicle_id,
       status: 'unavailable'
     });
-    // updateVehicle({id: vehicle_id, is_park: true});
+    updateVehicle({id: vehicle_id, did_park: true});
     this.setState({side: '', space: ''});
   };
   handleUnpark = () => {
-    // this.unpark();
+    const {getParkSideOfVehicle = () => {}} = this.props;
+    const {
+      vehicle_id,
+      updateParkingSide = () => {},
+      updateVehicle = () => {}
+    } = this.props;
+
+    const vehicle = getParkSideOfVehicle(vehicle_id)!;
+
+    updateParkingSide({
+      id: vehicle.parkside_id,
+      space_id: vehicle.parkspace_id,
+      vehicle_id: undefined,
+      status: 'available'
+    });
+    updateVehicle({id: vehicle_id, did_park: false});
   };
 
   handleChange =
@@ -43,9 +58,10 @@ class Car extends Vehicle<Props> {
     };
 
   render(): ReactNode {
-    const {vehicle_id, did_park, getVehicle} = this.props;
+    const {vehicle_id, getVehicle} = this.props;
     const {side, space} = this.state;
     const vehicle = getVehicle!(vehicle_id);
+    const did_park = vehicle?.did_park;
 
     if (!vehicle) return null;
 
@@ -55,19 +71,23 @@ class Car extends Vehicle<Props> {
           {vehicle_id} ({vehicle?.size})
         </div>
         <div className={styles['action']}>
-          <div className={styles['fields']}>
-            <input
-              placeholder='Side'
-              value={side}
-              onChange={this.handleChange('side')}
-            />
-            <input
-              placeholder='Space'
-              value={space}
-              onChange={this.handleChange('space')}
-            />
-          </div>
-          <button onClick={this.handlePark}>PARK</button>
+          {!did_park && (
+            <div className={styles['fields']}>
+              <input
+                placeholder='Side'
+                value={side}
+                onChange={this.handleChange('side')}
+              />
+              <input
+                placeholder='Space'
+                value={space}
+                onChange={this.handleChange('space')}
+              />
+            </div>
+          )}
+          <button onClick={!did_park ? this.handlePark : this.handleUnpark}>
+            {!did_park ? 'PARK' : 'UNPARK'}
+          </button>
         </div>
       </div>
     );

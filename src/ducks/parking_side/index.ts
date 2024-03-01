@@ -1,5 +1,6 @@
 import {SIZE} from 'constants/enums';
 import {
+  ADD_PARKINGSIDE,
   ParkingSideReducer,
   ParkingSideState,
   SET_PARKINGSIDES,
@@ -14,16 +15,19 @@ const parkingside_initstate: ParkingSideState = {
         {
           id: 'A1',
           status: 'available',
+          size: SIZE.SMALL,
           vehicle_id: undefined
         },
         {
           id: 'A2',
           status: 'available',
+          size: SIZE.SMALL,
           vehicle_id: undefined
         },
         {
           id: 'A3',
           status: 'available',
+          size: SIZE.SMALL,
           vehicle_id: undefined
         }
       ]
@@ -34,16 +38,42 @@ const parkingside_initstate: ParkingSideState = {
         {
           id: 'B1',
           status: 'available',
+          size: SIZE.MEDIUM,
           vehicle_id: undefined
         },
         {
           id: 'B2',
           status: 'available',
+          size: SIZE.SMALL,
           vehicle_id: undefined
         },
         {
           id: 'B3',
           status: 'available',
+          size: SIZE.MEDIUM,
+          vehicle_id: undefined
+        }
+      ]
+    },
+    {
+      id: 'C',
+      parking_spaces: [
+        {
+          id: 'C1',
+          status: 'available',
+          size: SIZE.SMALL,
+          vehicle_id: undefined
+        },
+        {
+          id: 'C2',
+          status: 'available',
+          size: SIZE.LARGE,
+          vehicle_id: undefined
+        },
+        {
+          id: 'C3',
+          status: 'available',
+          size: SIZE.SMALL,
           vehicle_id: undefined
         }
       ]
@@ -56,9 +86,25 @@ const parkingSide: ParkingSideReducer = (
   action
 ) => {
   switch (action.type) {
+    case ADD_PARKINGSIDE: {
+      const payload = action.payload;
+      const parkside = {
+        id: payload.entry_id,
+        parking_spaces: Array.from({length: payload.entry_spaces}).map(
+          (_, i) => ({
+            id: payload.entry_id + (i + 1),
+            status: 'available',
+            vehicle_id: undefined
+          })
+        )
+      };
+
+      return {...state, data: [...state.data, parkside]};
+    }
+
     case SET_PARKINGSIDES: {
-      const parking_sides = action.payload;
-      return {...state, data: parking_sides};
+      const parksides = action.payload;
+      return {...state, data: parksides};
     }
 
     case UPDATE_PARKINGSIDE: {

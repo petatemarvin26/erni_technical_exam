@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-import {Props} from 'ducks';
+import {Props, connector} from 'ducks';
 import {Space} from 'components/interfaces';
 import Car from 'components/Car';
 
@@ -19,14 +19,15 @@ class ParkingSpace extends Space<Props> {
   };
 
   render(): ReactNode {
-    const {id, vehicle_id} = this.props;
+    const {id, size, vehicle_id, getVehicle} = this.props;
+    const vehicle = getVehicle!(vehicle_id!);
     return (
       <div className={`${styles['parking-space']} ${this.getColorStatus()}`}>
-        {id}
-        {vehicle_id && <Car vehicle_id={vehicle_id} />}
+        {id} - {size}
+        {vehicle?.did_park && <Car vehicle_id={vehicle_id!} />}
       </div>
     );
   }
 }
 
-export default ParkingSpace;
+export default connector(ParkingSpace);

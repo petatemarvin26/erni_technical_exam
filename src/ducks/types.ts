@@ -11,6 +11,10 @@ type MapProps = {
   parkingSide?: ParkingSideState;
   parkingSpace?: ParkingSpaceState;
   getParkingSide?: (side_id: string) => ParkingSide | undefined;
+  getParkSideOfVehicle?: (vehicle_id: string) => {
+    parkside_id: string;
+    parkspace_id: string;
+  };
   getVehicle?: (vehicle_id: string) => Vehicle | undefined;
 };
 
@@ -31,6 +35,8 @@ type MapDispatch = {
     updateParkingSpace?: (payload: any) => ReduxAction;
     updateParkingSide?: (payload: any) => ReduxAction;
     updateVehicle?: (payload: any) => ReduxAction;
+    addEntryPoint?: (payload: any) => ReduxAction;
+    addParkingSide?: (payload: any) => ReduxAction;
   };
 };
 
