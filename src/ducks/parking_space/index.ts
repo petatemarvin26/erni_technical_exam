@@ -1,4 +1,5 @@
 import {
+  UPDATE_PARKINGSPACE,
   ParkingSpaceReducer,
   ParkingSpaceState,
   SET_PARKINGSPACES

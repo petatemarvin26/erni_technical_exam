@@ -13,8 +13,32 @@
 .car .subtitle {
 }
 
+.car .action {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.action .fields {
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.fields input {
+  width: 25%;
+}
+.fields input {
+  width: 30%;
+  height: 25px;
+  padding-left: 5px;
+  border: var(--BORDER-LIGHT);
+  background-color: rgb(244, 243, 243);
+}
+.fields input:focus {
+  outline: none;
+}
+
 .car button {
-  width: 100px;
+  width: 60%;
   height: 25px;
   font-size: 12px;
   border: var(--BORDER-LIGHT);

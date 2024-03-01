@@ -8,7 +8,7 @@ import styles from './styles.css';
 class CarList extends React.PureComponent<Props> {
   render(): React.ReactNode {
     const renderCars = this.props.vehicle?.data.map((vehicle, i) => (
-      <Car key={i} vehicle_id={vehicle.id!} />
+      <Car key={i} vehicle_id={vehicle.id!}  />
     ));
 
     return (

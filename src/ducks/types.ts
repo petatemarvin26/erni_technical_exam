@@ -28,6 +28,9 @@ type MapDispatch = {
   (dispatch: ReduxDispatch<ReduxAction>): {
     dispatch?: (action: ReduxAction) => ReduxAction;
     addVehicle?: (payload: any) => ReduxAction;
+    updateParkingSpace?: (payload: any) => ReduxAction;
+    updateParkingSide?: (payload: any) => ReduxAction;
+    updateVehicle?: (payload: any) => ReduxAction;
   };
 };
 

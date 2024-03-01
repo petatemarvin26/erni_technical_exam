@@ -1,5 +1,10 @@
 import {SIZE} from 'constants/enums';
-import {ParkingSideReducer, ParkingSideState, SET_PARKINGSIDES} from './types';
+import {
+  ParkingSideReducer,
+  ParkingSideState,
+  SET_PARKINGSIDES,
+  UPDATE_PARKINGSIDE
+} from './types';
 
 const parkingside_initstate: ParkingSideState = {
   data: [
@@ -9,17 +14,17 @@ const parkingside_initstate: ParkingSideState = {
         {
           id: 'A1',
           status: 'available',
-          vehicle_id: 'v-1'
+          vehicle_id: undefined
         },
         {
           id: 'A2',
-          status: 'unavailable',
-          vehicle_id: 'v-2'
+          status: 'available',
+          vehicle_id: undefined
         },
         {
           id: 'A3',
-          status: 'reserved',
-          vehicle_id: 'v-3'
+          status: 'available',
+          vehicle_id: undefined
         }
       ]
     },
@@ -29,17 +34,17 @@ const parkingside_initstate: ParkingSideState = {
         {
           id: 'B1',
           status: 'available',
-          vehicle_id: 'v-4'
+          vehicle_id: undefined
         },
         {
           id: 'B2',
           status: 'available',
-          vehicle_id: 'v-5'
+          vehicle_id: undefined
         },
         {
           id: 'B3',
           status: 'available',
-          vehicle_id: 'v-6'
+          vehicle_id: undefined
         }
       ]
     }
@@ -54,6 +59,27 @@ const parkingSide: ParkingSideReducer = (
     case SET_PARKINGSIDES: {
       const parking_sides = action.payload;
       return {...state, data: parking_sides};
+    }
+
+    case UPDATE_PARKINGSIDE: {
+      const payload = action.payload;
+      const updated_parkside = state.data.map((parkside) => {
+        if (parkside.id === payload.id) {
+          const parkspaces = parkside.parking_spaces.map((parkspace) => {
+            if (parkspace.id === payload.space_id) {
+              return {
+                ...parkspace,
+                status: payload.status,
+                vehicle_id: payload.vehicle_id
+              };
+            }
+            return parkspace;
+          });
+          return {...parkside, parking_spaces: parkspaces};
+        }
+        return parkside;
+      });
+      return {...state, data: updated_parkside};
     }
 
     default:

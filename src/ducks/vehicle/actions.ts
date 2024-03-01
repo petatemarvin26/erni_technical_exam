@@ -1,4 +1,9 @@
-import {ADD_VEHICLE, SET_VEHICLES, VehicleDispatch} from './types';
+import {
+  ADD_VEHICLE,
+  SET_VEHICLES,
+  UPDATE_VEHICLE,
+  VehicleDispatch
+} from './types';
 
 const setVehicles: VehicleDispatch = (payload) => ({
   type: SET_VEHICLES,
@@ -10,4 +15,9 @@ const addVehicle: VehicleDispatch = (payload) => ({
   payload
 });
 
-export {setVehicles, addVehicle};
+const updateVehicle: VehicleDispatch = (payload) => ({
+  type: UPDATE_VEHICLE,
+  payload
+});
+
+export {setVehicles, addVehicle, updateVehicle};

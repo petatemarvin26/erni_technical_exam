@@ -26,19 +26,22 @@ class ControlPanel extends React.PureComponent<Props, State> {
   handleAddVehicle = () => {
     // CONTINUE
     const {vehicle_id, vehicle_size} = this.state;
+    const {addVehicle = () => {}} = this.props;
     try {
       const size = getSize(vehicle_size);
-      this.props.addVehicle!({
+      addVehicle!({
         id: vehicle_id,
         size,
         is_park: false
       });
+      this.setState({vehicle_id: '', vehicle_size: ''});
     } catch (err) {
       console.log('SIZE IS INVALD');
     }
   };
 
   render(): React.ReactNode {
+    const {vehicle_id, vehicle_size} = this.state;
     return (
       <div className={styles['ctrl-panel']}>
         <div className={styles['left-ctrl-panel']}>
@@ -49,10 +52,12 @@ class ControlPanel extends React.PureComponent<Props, State> {
             <div className={styles['content-row']}>
               <input
                 placeholder='Vehicle ID'
+                value={vehicle_id}
                 onChange={this.handleChange('vehicle_id')}
               />
               <input
                 placeholder='Vehicle Size'
+                value={vehicle_size}
                 onChange={this.handleChange('vehicle_size')}
               />
             </div>

@@ -1,12 +1,12 @@
 import {SIZE} from 'constants/enums';
 
 const getSize = (value: string) => {
-  switch (value) {
-    case 'S':
+  switch (value.toLowerCase().trim()) {
+    case 's':
       return SIZE.SMALL;
-    case 'M':
+    case 'm':
       return SIZE.MEDIUM;
-    case 'L':
+    case 'l':
       return SIZE.LARGE;
 
     default:

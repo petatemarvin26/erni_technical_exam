@@ -1,8 +1,20 @@
 import {SIZE} from 'constants/enums';
-import {ADD_VEHICLE, SET_VEHICLES, VehicleReducer, VehicleState} from './types';
+import {
+  ADD_VEHICLE,
+  SET_VEHICLES,
+  UPDATE_VEHICLE,
+  VehicleReducer,
+  VehicleState
+} from './types';
 
 const vehicle_initstate: VehicleState = {
-  data: []
+  data: [
+    {
+      id: 'VIN-1',
+      size: SIZE.SMALL,
+      did_park: false
+    }
+  ]
 };
 
 const car: VehicleReducer = (state = vehicle_initstate, action) => {
@@ -16,6 +28,15 @@ const car: VehicleReducer = (state = vehicle_initstate, action) => {
       const vehicle = action.payload;
       const vehicles = [...state.data, vehicle];
       return {...state, data: vehicles};
+    }
+
+    case UPDATE_VEHICLE: {
+      const payload = action.payload;
+      const updatedVehicles = state.data.map((vehicle) => {
+        if (vehicle.id === payload.id) return {...vehicle, ...payload};
+        return vehicle;
+      });
+      return {...state, data: updatedVehicles};
     }
 
     default:

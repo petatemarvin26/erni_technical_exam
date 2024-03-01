@@ -1,6 +1,8 @@
 import {ConnectedProps, connect} from 'react-redux';
 
-import {addVehicle} from './vehicle';
+import {addVehicle, updateVehicle} from './vehicle';
+import {updateParkingSpace} from './parking_space';
+import {updateParkingSide} from './parking_side';
 import {MapDispatch, MapState} from './types';
 
 const mapState: MapState = ({
@@ -21,7 +23,10 @@ const mapState: MapState = ({
 
 const mapDispatch: MapDispatch = (dispatch) => ({
   dispatch: (action) => dispatch(action),
-  addVehicle: (payload) => dispatch(addVehicle(payload))
+  addVehicle: (payload) => dispatch(addVehicle(payload)),
+  updateParkingSpace: (payload) => dispatch(updateParkingSpace(payload)),
+  updateParkingSide: (payload) => dispatch(updateParkingSide(payload)),
+  updateVehicle: (payload) => dispatch(updateVehicle(payload))
 });
 
 const connector = connect(mapState, mapDispatch);

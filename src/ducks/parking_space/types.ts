@@ -1,8 +1,6 @@
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
-import {Vehicle} from 'ducks/vehicle/types';
-
-type ActionType = 'SET-PARKINGSPACES';
+type ActionType = 'SET-PARKINGSPACES' | 'OCCUPY-PARKING-SPACE';
 
 type Status = 'available' | 'unavailable' | 'reserved';
 
@@ -18,6 +16,7 @@ type ParkingSpaceDispatch = Dispatch<ActionType>;
 type ParkingSpaceReducer = Reducer<ParkingSpaceState, ParkingSpaceActions>;
 
 const SET_PARKINGSPACES: ActionType = 'SET-PARKINGSPACES';
+const UPDATE_PARKINGSPACE: ActionType = 'OCCUPY-PARKING-SPACE';
 
 export type {
   ParkingSpace,
@@ -26,4 +25,4 @@ export type {
   ParkingSpaceDispatch,
   ParkingSpaceReducer
 };
-export {SET_PARKINGSPACES};
+export {SET_PARKINGSPACES, UPDATE_PARKINGSPACE};
