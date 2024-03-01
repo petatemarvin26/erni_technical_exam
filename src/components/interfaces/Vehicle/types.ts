@@ -1,9 +1,9 @@
-type VehicleProps = {
-  name: string;
+import {Vehicle} from 'ducks/vehicle/types';
+
+type VehicleProps = Vehicle & {
+  vehicle_id: string;
 };
 
-type VehicleState = {
-  is_park: boolean;
-};
+type VehicleState = {};
 
 export type {VehicleProps, VehicleState};

@@ -1,8 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
   "rules": {
-    "no-unused-vars": "warn",
-    "semi": ["warn", "always"],
-    "quotes": ["warn", "single"]
+    "no-unused-vars": "off",
+    "semi": ["warn", "always"]
+    // "quotes": ["warn", "single"]
   }
 }

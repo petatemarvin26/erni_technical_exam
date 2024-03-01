@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux';
 
-import car from './car';
+import vehicle from './vehicle';
 import parkingLot from './parking_lot';
 import parkingSide from './parking_side';
 import parkingSpace from './parking_space';
 
 function rootReducer() {
   return combineReducers({
-    car,
+    vehicle,
     parkingLot,
     parkingSide,
     parkingSpace

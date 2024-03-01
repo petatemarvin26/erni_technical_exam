@@ -1,6 +1,6 @@
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
-import {Vehicle} from 'ducks/car/types';
+import {Vehicle} from 'ducks/vehicle/types';
 
 type ActionType = 'SET-PARKINGSPACES';
 
@@ -9,7 +9,7 @@ type Status = 'available' | 'unavailable' | 'reserved';
 type ParkingSpace = {
   id: string;
   status: Status;
-  vehicle: Vehicle;
+  vehicle_id?: string;
 };
 
 type ParkingSpaceState = State<Array<ParkingSpace>>;

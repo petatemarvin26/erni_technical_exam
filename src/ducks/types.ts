@@ -1,16 +1,17 @@
 import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 
-import {CarState} from './car/types';
+import {Vehicle, VehicleState} from './vehicle/types';
 import {ParkingLotState} from './parking_lot/types';
 import {ParkingSide, ParkingSideState} from './parking_side/types';
 import {ParkingSpaceState} from './parking_space/types';
 
 type MapProps = {
-  car?: CarState;
+  vehicle?: VehicleState;
   parkingLot?: ParkingLotState;
   parkingSide?: ParkingSideState;
   parkingSpace?: ParkingSpaceState;
   getParkingSide?: (side_id: string) => ParkingSide | undefined;
+  getVehicle?: (vehicle_id: string) => Vehicle | undefined;
 };
 
 type MapState = {
@@ -26,6 +27,7 @@ type MapState = {
 type MapDispatch = {
   (dispatch: ReduxDispatch<ReduxAction>): {
     dispatch?: (action: ReduxAction) => ReduxAction;
+    addVehicle?: (payload: any) => ReduxAction;
   };
 };
 

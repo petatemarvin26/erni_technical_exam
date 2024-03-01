@@ -1,10 +1,17 @@
 import {ConnectedProps, connect} from 'react-redux';
 
-// import {setEntryPoint} from './parking_lot';
+import {addVehicle} from './vehicle';
 import {MapDispatch, MapState} from './types';
 
-const mapState: MapState = ({car, parkingLot, parkingSide, parkingSpace}) => ({
-  car,
+const mapState: MapState = ({
+  vehicle,
+  parkingLot,
+  parkingSide,
+  parkingSpace
+}) => ({
+  vehicle,
+  getVehicle: (vehicle_id: string) =>
+    vehicle?.data.find(({id}) => id === vehicle_id),
   parkingLot,
   parkingSide,
   getParkingSide: (side_id: string) =>
@@ -13,8 +20,8 @@ const mapState: MapState = ({car, parkingLot, parkingSide, parkingSpace}) => ({
 });
 
 const mapDispatch: MapDispatch = (dispatch) => ({
-  dispatch: (action) => dispatch(action)
-  // setEntryPoint: (payload) => dispatch(setEntryPoint(payload))
+  dispatch: (action) => dispatch(action),
+  addVehicle: (payload) => dispatch(addVehicle(payload))
 });
 
 const connector = connect(mapState, mapDispatch);

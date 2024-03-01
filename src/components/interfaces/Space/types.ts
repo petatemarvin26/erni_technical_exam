@@ -1,11 +1,8 @@
-import {Vehicle} from 'ducks/car/types';
+import {ParkingSpace} from 'ducks/parking_space/types';
 
 type Status = 'available' | 'unavailable' | 'reserved';
 
-type SpaceProps = {
-  status: Status;
-  vehicle: Vehicle;
-};
+type SpaceProps = ParkingSpace;
 
 type SpaceState = {};
 

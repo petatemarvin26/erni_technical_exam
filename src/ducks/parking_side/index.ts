@@ -1,3 +1,4 @@
+import {SIZE} from 'constants/enums';
 import {ParkingSideReducer, ParkingSideState, SET_PARKINGSIDES} from './types';
 
 const parkingside_initstate: ParkingSideState = {
@@ -6,25 +7,19 @@ const parkingside_initstate: ParkingSideState = {
       id: 'A',
       parking_spaces: [
         {
-          id: 'ps-A-1',
+          id: 'A1',
           status: 'available',
-          vehicle: {
-            name: 'V-e1'
-          }
+          vehicle_id: 'v-1'
         },
         {
-          id: 'ps-B-2',
+          id: 'A2',
           status: 'unavailable',
-          vehicle: {
-            name: 'V-e2'
-          }
+          vehicle_id: 'v-2'
         },
         {
-          id: 'ps-C-3',
+          id: 'A3',
           status: 'reserved',
-          vehicle: {
-            name: 'V-e2'
-          }
+          vehicle_id: 'v-3'
         }
       ]
     },
@@ -32,25 +27,19 @@ const parkingside_initstate: ParkingSideState = {
       id: 'B',
       parking_spaces: [
         {
-          id: 'ps-B-1',
+          id: 'B1',
           status: 'available',
-          vehicle: {
-            name: 'vasd'
-          }
+          vehicle_id: 'v-4'
         },
         {
-          id: 'ps-B-3',
+          id: 'B2',
           status: 'available',
-          vehicle: {
-            name: 'zxc3'
-          }
+          vehicle_id: 'v-5'
         },
         {
-          id: 'ps-C-3',
+          id: 'B3',
           status: 'available',
-          vehicle: {
-            name: '3212'
-          }
+          vehicle_id: 'v-6'
         }
       ]
     }

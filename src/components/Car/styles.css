@@ -7,8 +7,10 @@
   background-color: white;
   gap: 10px;
 }
-.car .name {
+.car .title {
   font-weight: bold;
+}
+.car .subtitle {
 }
 
 .car button {

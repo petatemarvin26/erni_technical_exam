@@ -2,6 +2,9 @@
   width: var(--PARKINGLOT-WIDTH);
   height: var(--PARKINGLOT-HEIGHT);
   border: var(--BORDER-LIGHT);
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .green {
