@@ -1,4 +1,4 @@
-import {Vehicle} from 'ducks/vehicle/types';
+import {Vehicle} from 'ducks/car/types';
 
 type Status = 'available' | 'unavailable' | 'reserved';
 

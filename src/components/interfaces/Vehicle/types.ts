@@ -1,4 +1,6 @@
-type VehicleProps = {};
+type VehicleProps = {
+  name: string;
+};
 
 type VehicleState = {
   is_park: boolean;

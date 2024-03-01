@@ -1,0 +1,51 @@
+.ctrl-panel {
+  min-width: 80%;
+  height: 17.5%;
+  flex-direction: row;
+  border: var(--BORDER-LIGHT);
+}
+
+.ctrl-panel .left-ctrl-panel {
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgb(249, 165, 165); */
+}
+.ctrl-panel .right-ctrl-panel {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  /* background-color: rgb(235, 243, 164); */
+}
+
+.right-ctrl-panel .content {
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  gap: 5px;
+}
+
+.content input {
+  width: 97.5%;
+  height: 30px;
+  padding-left: 5px;
+  border: var(--BORDER-LIGHT);
+  background-color: rgb(244, 243, 243);
+}
+.content input:focus {
+  outline: none;
+}
+
+.content button {
+  width: 100%;
+  height: 50px;
+  border: var(--BORDER-LIGHT);
+  background-color: white;
+}
+.content button:hover {
+  cursor: pointer;
+}
+.content button:active {
+  opacity: 0.6;
+}

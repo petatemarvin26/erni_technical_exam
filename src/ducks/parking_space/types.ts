@@ -1,6 +1,6 @@
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
-import {Vehicle} from 'ducks/vehicle/types';
+import {Vehicle} from 'ducks/car/types';
 
 type ActionType = 'SET-PARKINGSPACES';
 

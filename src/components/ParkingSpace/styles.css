@@ -3,3 +3,15 @@
   height: var(--PARKINGLOT-HEIGHT);
   border: var(--BORDER-LIGHT);
 }
+
+.green {
+  background-color: rgb(226, 255, 226);
+}
+
+.red {
+  background-color: rgb(255, 221, 221);
+}
+
+.yellow {
+  background-color: rgb(255, 255, 218);
+}

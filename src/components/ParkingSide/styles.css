@@ -1,18 +1,18 @@
 .parking-side {
   width: 250px;
-  height: 500px;
+  height: 90%;
   align-items: center;
-  padding: 25px;
-  position: relative;
+  justify-content: flex-end;
+  /* position: relative; */
   /* border: var(--BORDER-LIGHT); */
   gap: 20px;
 }
 
 .parking-side .entrance-n-exit {
-  top: -150px;
-  position: absolute;
+  /* bottom: -150px;
+  position: absolute; */
   width: var(--PARKINGLOT-WIDTH);
-  height: 100px;
+  height: 75px;
   align-items: center;
   justify-content: center;
   border: var(--BORDER-LIGHT);

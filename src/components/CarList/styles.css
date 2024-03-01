@@ -1,0 +1,16 @@
+.car-list {
+  width: 95%;
+  height: 80%;
+  overflow-x: auto;
+  position: relative;
+  justify-content: center;
+  border: var(--BORDER-LIGHT);
+  background-color: rgb(241, 241, 241);
+}
+
+.car-list .car-list-content {
+  position: absolute;
+  flex-direction: row;
+  padding: 0 15px;
+  gap: 15px;
+}

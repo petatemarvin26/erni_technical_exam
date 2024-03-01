@@ -6,15 +6,22 @@ const parkingside_initstate: ParkingSideState = {
       id: 'A',
       parking_spaces: [
         {
-          id: 'sp-1',
+          id: 'ps-A-1',
           status: 'available',
           vehicle: {
             name: 'V-e1'
           }
         },
         {
-          id: 'sp-2',
-          status: 'available',
+          id: 'ps-B-2',
+          status: 'unavailable',
+          vehicle: {
+            name: 'V-e2'
+          }
+        },
+        {
+          id: 'ps-C-3',
+          status: 'reserved',
           vehicle: {
             name: 'V-e2'
           }
@@ -25,17 +32,24 @@ const parkingside_initstate: ParkingSideState = {
       id: 'B',
       parking_spaces: [
         {
-          id: 'sp-1',
+          id: 'ps-B-1',
           status: 'available',
           vehicle: {
-            name: 'V-e1'
+            name: 'vasd'
           }
         },
         {
-          id: 'sp-2',
+          id: 'ps-B-3',
           status: 'available',
           vehicle: {
-            name: 'V-e2'
+            name: 'zxc3'
+          }
+        },
+        {
+          id: 'ps-C-3',
+          status: 'available',
+          vehicle: {
+            name: '3212'
           }
         }
       ]

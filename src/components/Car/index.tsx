@@ -1,4 +1,8 @@
+import {ReactNode} from 'react';
+
 import {Vehicle} from 'components/interfaces';
+
+import styles from './styles.css';
 
 class Car extends Vehicle {
   handlePark() {
@@ -6,6 +10,11 @@ class Car extends Vehicle {
   }
   handleUnpark() {
     this.unpark();
+  }
+
+  render(): ReactNode {
+    const {name} = this.props;
+    return <div className={styles['car']}>{name}</div>;
   }
 }
 

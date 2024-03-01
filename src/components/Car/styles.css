@@ -1,0 +1,8 @@
+.car {
+  width: 150px;
+  height: 125px;
+  align-items: center;
+  justify-content: center;
+  border: var(--BORDER-LIGHT);
+  background-color: white;
+}

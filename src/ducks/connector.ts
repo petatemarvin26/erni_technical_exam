@@ -3,7 +3,8 @@ import {ConnectedProps, connect} from 'react-redux';
 // import {setEntryPoint} from './parking_lot';
 import {MapDispatch, MapState} from './types';
 
-const mapState: MapState = ({parkingLot, parkingSide, parkingSpace}) => ({
+const mapState: MapState = ({car, parkingLot, parkingSide, parkingSpace}) => ({
+  car,
   parkingLot,
   parkingSide,
   getParkingSide: (side_id: string) =>

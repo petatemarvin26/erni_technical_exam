@@ -1,10 +1,12 @@
 import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 
+import {CarState} from './car/types';
 import {ParkingLotState} from './parking_lot/types';
 import {ParkingSide, ParkingSideState} from './parking_side/types';
 import {ParkingSpaceState} from './parking_space/types';
 
 type MapProps = {
+  car?: CarState;
   parkingLot?: ParkingLotState;
   parkingSide?: ParkingSideState;
   parkingSpace?: ParkingSpaceState;
