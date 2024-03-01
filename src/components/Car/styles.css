@@ -1,6 +1,6 @@
 .car {
   width: 150px;
-  height: 125px;
+  height: 130px;
   align-items: center;
   justify-content: center;
   border: var(--BORDER-LIGHT);
@@ -50,4 +50,8 @@
 }
 .car button:active {
   opacity: 0.6;
+}
+
+.car .time-consume {
+  font-size: 12px;
 }

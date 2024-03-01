@@ -1,13 +1,15 @@
 import {SIZE} from 'constants/enums';
 import {State, Action, Dispatch, Reducer} from 'ducks/types';
 
-type ActionType = 'SET-VEHICLES' | 'ADD-VEHICLE' | 'UPDATE-VEHICLE'
+type ActionType = 'SET-VEHICLES' | 'ADD-VEHICLE' | 'UPDATE-VEHICLE';
 
 type Vehicle = {
   id?: string;
   name?: string;
   size?: SIZE;
   did_park?: boolean;
+  charge: 0;
+  time_start: string;
 };
 type VehicleState = State<Array<Vehicle>>;
 type VehicleActions = Action<ActionType>;

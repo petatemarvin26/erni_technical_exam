@@ -12,7 +12,9 @@ const vehicle_initstate: VehicleState = {
     {
       id: 'VIN-1',
       size: SIZE.MEDIUM,
-      did_park: false
+      did_park: false,
+      charge: 0,
+      time_start: ''
     }
   ]
 };

@@ -8,6 +8,7 @@ import {VehicleProps, VehicleState} from 'components/interfaces/Vehicle/types';
 import {isSizeFit} from 'utils/cheker';
 
 class Car extends Vehicle<Props> {
+  timer?: NodeJS.Timeout;
   constructor(props: VehicleProps) {
     super(props);
 
@@ -29,8 +30,14 @@ class Car extends Vehicle<Props> {
     const vehicle = getVehicle(vehicle_id)!;
     const parkspace = getParkingSpace(side, space)!;
 
-    if (!isSizeFit(vehicle.size!, parkspace.size)) {
-      console.log('Vehicle is not fit');
+    // validate if fit or not
+    try {
+      if (!isSizeFit(vehicle?.size!, parkspace?.size!)) {
+        console.log('Vehicle is not fit');
+        return;
+      }
+    } catch (err) {
+      console.log('Vehicle park slot does not exist');
       return;
     }
 
@@ -40,7 +47,16 @@ class Car extends Vehicle<Props> {
       vehicle_id,
       status: 'unavailable'
     });
-    updateVehicle({id: vehicle_id, did_park: true});
+    const time_start = new Date();
+    updateVehicle({
+      id: vehicle_id,
+      did_park: true,
+      charge: 40,
+      time_start:
+        time_start.toLocaleDateString() +
+        ' - ' +
+        time_start.toLocaleTimeString()
+    });
     this.setState({side: '', space: ''});
   };
   handleUnpark = () => {
@@ -98,6 +114,12 @@ class Car extends Vehicle<Props> {
           <button onClick={!did_park ? this.handlePark : this.handleUnpark}>
             {!did_park ? 'PARK' : 'UNPARK'}
           </button>
+          {vehicle.time_start && (
+            <p className={styles['time-consume']}>{vehicle.time_start}</p>
+          )}
+          {vehicle.charge > 0 && (
+            <p className={styles['time-consume']}>₱{vehicle.charge}</p>
+          )}
         </div>
       </div>
     );

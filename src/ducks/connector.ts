@@ -10,12 +10,7 @@ import {
 import {addEntryPoint} from './parking_lot';
 import {MapDispatch, MapState} from './types';
 
-const mapState: MapState = ({
-  vehicle,
-  parkingLot,
-  parkingSide,
-  parkingSpace
-}) => ({
+const mapState: MapState = ({vehicle, parkingLot, parkingSide}) => ({
   vehicle,
   getVehicle: (vehicle_id) => vehicle?.data.find(({id}) => id === vehicle_id),
   parkingLot,
