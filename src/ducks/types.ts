@@ -1,13 +1,14 @@
 import {Dispatch as ReduxDispatch, Action as ReduxAction} from 'redux';
 
 import {ParkingLotState} from './parking_lot/types';
-import {ParkingSide} from './parking_side/types';
-import {ParkingSpace} from './parking_space/types';
+import {ParkingSide, ParkingSideState} from './parking_side/types';
+import {ParkingSpaceState} from './parking_space/types';
 
 type MapProps = {
   parkingLot?: ParkingLotState;
-  parkingSide?: ParkingSide;
-  parkingSpace?: ParkingSpace;
+  parkingSide?: ParkingSideState;
+  parkingSpace?: ParkingSpaceState;
+  getParkingSide?: (side_id: string) => ParkingSide | undefined;
 };
 
 type MapState = {

@@ -1,0 +1,5 @@
+.parking-space {
+  width: var(--PARKINGLOT-WIDTH);
+  height: var(--PARKINGLOT-HEIGHT);
+  border: var(--BORDER-LIGHT);
+}
